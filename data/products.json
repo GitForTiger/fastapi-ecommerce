@@ -1,0 +1,360 @@
+[
+  {
+    "product_id": "11110000-aaaa-2222-bbbb-333344445555",
+    "sku": "ORG-ENE-BAR-001",
+    "name": "Organic Energy Bars",
+    "description": "High-protein energy bars made with organic oats, honey, and dark chocolate. Perfect for pre-workout or on-the-go snacking.",
+    "price": 499.00,
+    "discount_percent": 20,
+    "currency": "INR",
+    "category": "Health & Nutrition",
+    "stock": 200,
+    "is_active": true,
+    "rating": 4.5,
+    "reviews_count": 312,
+    "tags": [
+      "protein",
+      "bars",
+      "organic",
+      "snacks"
+    ],
+    "image_urls": [
+      "https://example.com/images/energy-bars.png"
+    ],
+    "dimensions_cm": {
+      "length": 18.0,
+      "width": 10.0,
+      "height": 5.0
+    },
+    "seller": {
+      "seller_id": "99990000-aaaa-1111-bbbb-222233334444",
+      "name": "HealthyMart",
+      "email": "support@healthymart.in",
+      "website": "https://example.com/sellers/healthymart"
+    },
+    "created_at": "2024-09-06T00:00:00Z"
+  },
+  {
+    "product_id": "22220000-bbbb-3333-cccc-444455556666",
+    "sku": "WIR-BLU-EAR-002",
+    "name": "Wireless Bluetooth Earbuds",
+    "description": "True wireless earbuds with active noise cancellation, 30-hour battery life, and IPX5 water resistance.",
+    "price": 2999.00,
+    "discount_percent": 20,
+    "currency": "INR",
+    "category": "Electronics",
+    "stock": 85,
+    "is_active": true,
+    "rating": 4.3,
+    "reviews_count": 820,
+    "tags": [
+      "earbuds",
+      "bluetooth",
+      "wireless",
+      "audio"
+    ],
+    "image_urls": [
+      "https://example.com/images/earbuds-main.png",
+      "https://example.com/images/earbuds-case.png"
+    ],
+    "dimensions_cm": {
+      "length": 6.5,
+      "width": 5.0,
+      "height": 3.0
+    },
+    "seller": {
+      "seller_id": "88880000-bbbb-2222-cccc-333344445555",
+      "name": "TechZone India",
+      "email": "care@techzone.in",
+      "website": "https://example.com/sellers/techzone"
+    },
+    "created_at" : "2024-09-06T00:00:00Z"
+  },
+  {
+    "product_id": "33330000-cccc-4444-dddd-555566667777",
+    "sku": "YOG-MAT-PRE-003",
+    "name": "Yoga Mat Premium",
+    "description": "Eco-friendly non-slip yoga mat, 6mm thick, made from natural rubber. Includes carrying strap.",
+    "price": 1199.00,
+    "discount_percent": 20,
+    "currency": "INR",
+    "category": "Sports & Fitness",
+    "stock": 150,
+    "is_active": true,
+    "rating": 4.7,
+    "reviews_count": 540,
+    "tags": [
+      "yoga",
+      "fitness",
+      "mat",
+      "eco-friendly"
+    ],
+    "image_urls": [
+      "https://example.com/images/yoga-mat.png"
+    ],
+    "dimensions_cm": {
+      "length": 183.0,
+      "width": 61.0,
+      "height": 0.6
+    },
+    "seller": {
+      "seller_id": "77770000-cccc-3333-dddd-444455556666",
+      "name": "FitLife Store",
+      "email": "hello@fitlife.in",
+      "website": "https://example.com/sellers/fitlife"
+    },
+    "created_at": "2024-09-06T00:00:00Z"
+  },
+  {
+    "product_id": "44440000-dddd-5555-eeee-666677778888",
+    "sku": "STE-WAT-BOT-004",
+    "name": "Stainless Steel Water Bottle",
+    "description": "Double-wall vacuum insulated bottle that keeps drinks cold for 24 hours and hot for 12 hours. BPA-free, 750ml.",
+    "price": 799.00,
+    "discount_percent": 20,
+    "currency": "INR",
+    "category": "Kitchen & Dining",
+    "stock": 320,
+    "is_active": true,
+    "rating": 4.6,
+    "reviews_count": 1200,
+    "tags": [
+      "bottle",
+      "steel",
+      "insulated",
+      "eco"
+    ],
+    "image_urls": [
+      "https://example.com/images/steel-bottle.png"
+    ],
+    "dimensions_cm": {
+      "length": 8.0,
+      "width": 8.0,
+      "height": 26.0
+    },
+    "seller": {
+      "seller_id": "66660000-dddd-4444-eeee-555566667777",
+      "name": "GreenHome Co.",
+      "email": "support@greenhome.in",
+      "website": "https://example.com/sellers/greenhome"
+    },
+    "created_at": "2024-09-06T00:00:00Z"
+  },
+  {
+    "product_id": "55550000-eeee-6666-ffff-777788889999",
+    "sku": "MEC-GAM-KEY-005",
+    "name": "Mechanical Gaming Keyboard",
+    "description": "TKL layout mechanical keyboard with RGB backlight, blue switches, and anti-ghosting. USB-C detachable cable.",
+    "price": 4599.00,
+    "discount_percent": 20,
+    "currency": "INR",
+    "category": "Electronics",
+    "stock": 60,
+    "is_active": true,
+    "rating": 4.4,
+    "reviews_count": 410,
+    "tags": [
+      "keyboard",
+      "gaming",
+      "mechanical",
+      "RGB"
+    ],
+    "image_urls": [
+      "https://example.com/images/gaming-keyboard.png",
+      "https://example.com/images/gaming-keyboard-side.png"
+    ],
+    "dimensions_cm": {
+      "length": 36.0,
+      "width": 13.5,
+      "height": 4.0
+    },
+    "seller": {
+      "seller_id": "55550000-eeee-5555-ffff-666677778888",
+      "name": "GamerGear Hub",
+      "email": "orders@gamergear.in",
+      "website": "https://example.com/sellers/gamergear"
+    },
+    "created_at": "2024-09-06T00:00:00Z"
+  },
+  {
+    "product_id": "66660000-ffff-7777-aaaa-888899990000",
+    "sku": "LEA-LAP-BAG-006",
+    "name": "Leather Laptop Bag",
+    "description": "Genuine leather 15.6-inch laptop bag with multiple compartments, padded sleeve, and shoulder strap.",
+    "price": 3499.00,
+    "discount_percent": 20,
+    "currency": "INR",
+    "category": "Bags & Accessories",
+    "stock": 45,
+    "is_active": true,
+    "rating": 4.2,
+    "reviews_count": 230,
+    "tags": [
+      "bag",
+      "laptop",
+      "leather",
+      "office"
+    ],
+    "image_urls": [
+      "https://example.com/images/laptop-bag.png"
+    ],
+    "dimensions_cm": {
+      "length": 42.0,
+      "width": 8.0,
+      "height": 30.0
+    },
+    "seller": {
+      "seller_id": "44440000-ffff-6666-aaaa-777788889999",
+      "name": "Urban Carry",
+      "email": "hello@urbancarry.in",
+      "website": "https://example.com/sellers/urbancarry"
+    },
+    "created_at": "2024-09-06T00:00:00Z"
+  },
+  {
+    "product_id": "77770000-aaaa-8888-bbbb-999900001111",
+    "sku": "AYU-FAC-WAS-007",
+    "name": "Ayurvedic Face Wash",
+    "description": "Gentle daily face wash with turmeric, neem, and aloe vera. Suitable for all skin types. Paraben-free.",
+    "price": 299.00,
+    "discount_percent": 20,
+    "currency": "INR",
+    "category": "Beauty & Personal Care",
+    "stock": 500,
+    "is_active": true,
+    "rating": 4.8,
+    "reviews_count": 2100,
+    "tags": [
+      "facewash",
+      "ayurvedic",
+      "skincare",
+      "natural"
+    ],
+    "image_urls": [
+      "https://example.com/images/facewash.png"
+    ],
+    "dimensions_cm": {
+      "length": 4.5,
+      "width": 4.5,
+      "height": 14.0
+    },
+    "seller": {
+      "seller_id": "33330000-aaaa-7777-bbbb-888899990000",
+      "name": "PureRoots Naturals",
+      "email": "care@pureroots.in",
+      "website": "https://example.com/sellers/pureroots"
+    },
+    "created_at": "2024-09-06T00:00:00Z"
+  },
+  {
+    "product_id": "88880000-bbbb-9999-cccc-000011112222",
+    "sku": "SMA-LED-LAM-008",
+    "name": "Smart LED Desk Lamp",
+    "description": "Touch-controlled LED desk lamp with 5 brightness levels, USB charging port, and memory function. Eye-care technology.",
+    "price": 1599.00,
+    "discount_percent": 20,
+    "currency": "INR",
+    "category": "Home & Office",
+    "stock": 110,
+    "is_active": true,
+    "rating": 4.5,
+    "reviews_count": 670,
+    "tags": [
+      "lamp",
+      "LED",
+      "desk",
+      "smart"
+    ],
+    "image_urls": [
+      "https://example.com/images/desk-lamp.png"
+    ],
+    "dimensions_cm": {
+      "length": 15.0,
+      "width": 15.0,
+      "height": 45.0
+    },
+    "seller": {
+      "seller_id": "22220000-bbbb-8888-cccc-999900001111",
+      "name": "BrightSpace Decor",
+      "email": "support@brightspace.in",
+      "website": "https://example.com/sellers/brightspace"
+    },
+    "created_at": "2024-09-06T00:00:00Z"
+  },
+  {
+    "product_id": "99990000-cccc-0000-dddd-111122223333",
+    "sku": "WOO-CUT-SET-009",
+    "name": "Wooden Cutting Board Set",
+    "description": "Set of 3 acacia wood cutting boards in different sizes. Juice groove design, easy-grip handle, dishwasher safe.",
+    "price": 999.00,
+    "discount_percent": 20,
+    "currency": "INR",
+    "category": "Kitchen & Dining",
+    "stock": 75,
+    "is_active": true,
+    "rating": 4.3,
+    "reviews_count": 390,
+    "tags": [
+      "kitchen",
+      "cutting-board",
+      "wood",
+      "cooking"
+    ],
+    "image_urls": [
+      "https://example.com/images/cutting-board-set.png"
+    ],
+    "dimensions_cm": {
+      "length": 38.0,
+      "width": 25.0,
+      "height": 2.0
+    },
+    "seller": {
+      "seller_id": "11110000-cccc-9999-dddd-000011112222",
+      "name": "GreenHome Co.",
+      "email": "support@greenhome.in",
+      "website": "https://example.com/sellers/greenhome"
+    },
+    "created_at": "2024-09-06T00:00:00Z"
+  },
+  {
+    "product_id": "00001111-dddd-1111-eeee-222233334444",
+    "sku": "RUN-SHO-MEN-010",
+    "name": "Running Shoes Men",
+    "description": "Lightweight breathable mesh running shoes with memory foam insole and anti-slip rubber outsole. Available in sizes 6–11.",
+    "price": 2199.00,
+    "discount_percent": 20,
+    "currency": "INR",
+    "category": "Footwear",
+    "stock": 95,
+    "is_active": true,
+    "rating": 4.6,
+    "reviews_count": 875,
+    "tags": [
+      "shoes",
+      "running",
+      "sports",
+      "men"
+    ],
+    "image_urls": [
+      "https://example.com/images/running-shoes.png",
+      "https://example.com/images/running-shoes-sole.png"
+    ],
+    "dimensions_cm": {
+      "length": 30.0,
+      "width": 12.0,
+      "height": 10.0
+    },
+    "seller": {
+      "seller_id": "00001111-dddd-0000-eeee-111122223333",
+      "name": "StepRight Sports",
+      "email": "sales@stepright.in",
+      "website": "https://example.com/sellers/stepright"
+    },
+    "created_at": "2024-09-06T00:00:00Z"
+  }
+]
+
+
+
+
+

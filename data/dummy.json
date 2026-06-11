@@ -1,0 +1,36 @@
+[
+  {
+    "product_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "sku": "WER-EDC-UHK-232",
+    "name": "Organic Energy Bars",
+    "description": "High-protein energy bars made with organic oats, honey, and dark chocolate.",
+    "price": 499.0,
+    "discount_percent": 1,
+    "currency": "INR",
+    "category": "Health & Nutrition",
+    "stock": 200,
+    "is_active": true,
+    "rating": 4.5,
+    "reviews_count": 312,
+    "tags": [
+      "string"
+    ],
+    "image_urls": [
+      "https://example.com/"
+    ],
+    "dimensions_cm": {
+      "length": 1.0,
+      "width": 1.0,
+      "height": 1.0
+    },
+    "seller": {
+      "seller_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "name": "ABC Store",
+      "email": "user@mistore.in",
+      "website": "https://example.com/"
+    },
+    "created_at": "2026-06-11T16:36:32.190000Z",
+    "final_price": 494.01,
+    "volume_c3": 1.0
+  }
+]
