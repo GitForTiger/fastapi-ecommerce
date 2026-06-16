@@ -4,7 +4,7 @@
     "sku": "WER-EDC-UHK-232",
     "name": "Organic Energy Bars",
     "description": "High-protein energy bars made with organic oats, honey, and dark chocolate.",
-    "price": 499.0,
+    "price": 599.0,
     "discount_percent": 1,
     "currency": "INR",
     "category": "Health & Nutrition",
@@ -30,7 +30,7 @@
       "website": "https://example.com/"
     },
     "created_at": "2026-06-11T16:36:32.190000Z",
-    "final_price": 494.01,
+    "final_price": 593.01,
     "volume_c3": 1.0
   }
 ]

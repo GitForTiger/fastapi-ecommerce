@@ -1,16 +1,44 @@
-from fastapi import FastAPI, HTTPException, Query, Path
+from dotenv import load_dotenv
+from fastapi import FastAPI, HTTPException, Query, Path, Depends, Request
+from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
-from schema.product import Products
-import json
-from services.products import get_all_products, add_product, remove_product
+from schema.product import Products, ProductUpdate
+import json, os
+from services.products import get_all_products, add_product, remove_product, change_product, load_products
 from uuid import uuid4, UUID
 from datetime import datetime
+from typing import List, Dict
+
+load_dotenv()
 
 app = FastAPI()
 
-@app.get('/')
-def root():
-    return {"message":"Welcome to FastAPI."}
+# About FastAPI Middleware
+# @app.middleware("http")
+# async def lifecycle(request : Request, call_next):
+#     print("Before request")
+#     response = await call_next(request)
+#     print("After request")
+#     return response
+
+def commonLogic():
+    return "Hi there!"
+
+@app.get('/', response_model=dict) # this statement creates what is known as a route in FastAPI.
+# response_model determines what data type the function on the route will return.
+def root(dep = Depends(commonLogic)): # now the function "commonLogic" is a technical "dependency", "injected" on the root function.
+
+    DB_PATH = os.getenv("BASE_URL")
+    #return {"message":"Welcome to FastAPI.","dependency" : dep, "data path" : DB_PATH}
+    return JSONResponse(
+        status_code=200,
+        content={
+            "message":"Welcome to FastAPI.",
+            "dependency" : dep,
+            "data path" : DB_PATH
+        }
+    )
+    # This second method basically allows us to give a custom status code.
 
 # FETCHING THE DATA FROM ANOTHER FILE IN THE SAME PRODUCT FOLDER
 
@@ -37,8 +65,10 @@ def root():
 # Here the name:str does not make any sense,
 # bcz the line 30 does not fetch data dynamically, so we need a query to make it work
 
-@app.get("/produucts")
+
+@app.get("/products")
 def list_products(
+    dep = Depends(load_products),
 
     name:str = Query(
         default=None,
@@ -67,7 +97,8 @@ def list_products(
         description="pagination offset",
     )
     ):
-    products = get_all_products()
+    # products = load_products()
+    products = dep
     if name:
         needle = name.strip().lower()
         products = [p for p in products if needle in p.get("name","").lower()]
@@ -125,3 +156,19 @@ def delete_product(product_id : UUID = Path(
         return data
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+
+
+@app.put("/products/{product_id}")
+def update(product_id : UUID = Path(
+    ...,
+    description = "Product UUID"
+), payload : ProductUpdate = ... ):
+        
+    try:
+        update_product = change_product(str(product_id), payload.model_dump(mode = "json", exclude_unset=True))
+        # The exclude_unset=True ensures to not care about the values that do not have been given a value in the update section
+        return update_product
+    
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))

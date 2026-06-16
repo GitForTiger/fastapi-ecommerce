@@ -5,11 +5,15 @@ from pydantic import (
     field_validator,
     model_validator,
     computed_field,
-    EmailStr
+    EmailStr,
+    ConfigDict
     )
 from typing import Annotated, Literal, Optional, List
 from uuid import UUID
 from datetime import datetime, timezone
+
+
+# CREATE PYDANTIC
 
 
 class DimensionsCM(BaseModel):
@@ -51,7 +55,7 @@ class Seller(BaseModel):
 
     website : AnyUrl
 
-    @field_validator("email",mode = "after") # this "after" converts the input(string) to it's preferred datatype
+    @field_validator("email",mode = "after")
     @classmethod
     def validate_seller_email_domain(cls, value : str):
         allowed_domains = {
@@ -191,8 +195,7 @@ class Products(BaseModel):
         description="Timestamp when the product was created"
     )
 
-    # field_validator works on only one field : SKU here.
-    @field_validator("sku",mode = "after") # this "after" converts the input(string) to it's preferred datatype
+    @field_validator("sku",mode = "after")
     @classmethod
     def validate_sku_format(cls, value : str):
         if "-" not in value:
@@ -202,15 +205,12 @@ class Products(BaseModel):
             raise ValueError("SKU must end with a 3-digit sequence like -234")
         return value
     
-    # model_validator works on more than one field
     @model_validator(mode="after")
     def validate_business_rules(self):
         if self.stock == 0 and self.is_active == True:
             raise ValueError("If stock is 0, is_active must be false")
         return self
         
-    #Note: mode="after" validators should use self (instance method), not @classmethod. 
-    #The @classmethod decorator is only correct for mode="before".
     @computed_field
     @property
     def final_price(self) ->float:
@@ -220,4 +220,91 @@ class Products(BaseModel):
     @property
     def volume_c3(self) ->float:
         d = self.dimensions_cm
+        return round(d.length * d.width * d.height, 2)
+    
+
+# UPDATE PYDANTIC
+
+
+class DimensionsCMUpdate(BaseModel):
+    length : Optional[float] = Field(default=None, gt = 0)
+    width : Optional[float] = Field(default=None, gt = 0)
+    height : Optional[float] = Field(default=None, gt = 0)
+
+
+class SellerUpdate(BaseModel):
+    name : Optional[str] = Field(default=None, min_length = 2, max_length = 60)
+    email : Optional[EmailStr] = None
+    website : Optional[AnyUrl] = None
+
+    @field_validator("email", mode="after")
+    @classmethod
+    def validate_seller_email_domain(cls, value : str):
+        if value is None:
+            return value
+        allowed_domains = {
+            "mistore.in",
+            "realmeofficial.in",
+            "samsungindia.in",
+            "lenovostore.in",
+            "hpworld.in",
+            "applestoreindia.in",
+            "dellexclusive.in",
+            "sonycenter.in",
+            "oneplusstore.in",
+            "asusexclusive.in",
+        }
+        domain = value.split("@")[-1].lower()
+        if domain not in allowed_domains:
+            raise ValueError(f"Seller email domain not allowed : {domain}")
+        return value
+
+
+class ProductUpdate(BaseModel):
+
+    model_config = ConfigDict(extra="ignore")
+    # This line ensures that the Pydantic ignores all those fields whose value the user does not specify at the time of update
+
+    name : Optional[str] = Field(default=None, min_length = 3, max_length = 80)
+    description : Optional[str] = Field(default=None, max_length = 200)
+    category : Optional[str] = None
+    brand : Optional[str] = None
+
+    price : Optional[float] = Field(default=None, gt = 0)
+    currency : Optional[Literal["INR"]] = None
+
+    discount_percent: Optional[int] = Field(default=None, ge=0, le=90)
+    stock: Optional[int] = Field(default=None, ge=0)
+
+    is_active: Optional[bool] = None
+
+    rating: Optional[float] = Field(default=None, ge=0, le=5)
+
+    tags: Optional[List[str]] = Field(default=None, max_length=10)
+    image_urls: Optional[List[AnyUrl]] = None
+
+    dimensions_cm: Optional[DimensionsCMUpdate] = None
+    seller: Optional[SellerUpdate] = None
+    
+    @model_validator(mode="after")
+    def validate_business_rules(self):
+        # Only validate if BOTH fields are present in this update payload
+        if self.stock is not None and self.is_active is not None:
+            if self.stock == 0 and self.is_active == True:
+                raise ValueError("If stock is 0, is_active must be false")
+        return self
+        
+    @computed_field
+    @property
+    def final_price(self) -> Optional[float]:
+        if self.price is None or self.discount_percent is None:
+            return None
+        return round(self.price * (1 - self.discount_percent / 100), 2)
+    
+    @computed_field
+    @property
+    def volume_c3(self) -> Optional[float]:
+        d = self.dimensions_cm
+        if d is None or d.length is None or d.width is None or d.height is None:
+            return None
         return round(d.length * d.width * d.height, 2)
